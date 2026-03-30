@@ -1,12 +1,12 @@
-import Header from "./components/Header.jsx";
-import Game from "./components/Game.jsx";
+import Header from "./components/Header";
+import Game from "./components/Game";
 
 function App() {
   return (
-    <div>
+    <>
       <Header gameName="Monster Slayer" />
       <Game />
-    </div>
+    </>
   );
 }
 

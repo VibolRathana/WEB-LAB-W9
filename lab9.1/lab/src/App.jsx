@@ -1,10 +1,8 @@
-import { useState }  from "react";
-import Toggle from "./components/Toggle";
-
+import AdminDashboard from "./pages/AdminDashboard"
 export default function App() {
     return (
         <div className="p-4">
-            <Toggle />
+            <AdminDashboard />
         </div>
     )
 }

@@ -1,24 +1,28 @@
-import { useState } from "react";
-import JokeItem from "./components/JokeList/JokeItem";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ClientShop from "./pages/ClientShop";
+import ProductDetail from "./pages/ProductDetail";
+import AdminDashboard from "./pages/AdminDashboard";
+import { useEffect } from "react";
+import data from "./data";
 
+function App() {
 
-const JOKES = [
-  { id: 1, text: "Joke A" },
-  { id: 2, text: "Joke B" }];
-
-export default function App() {
-  const [selectedId, setSelectedId] = useState(null);
+  useEffect(() => {
+    const stored = localStorage.getItem("products");
+    if (!stored) {
+      localStorage.setItem("products", JSON.stringify(data));
+    }
+  }, []);
 
   return (
-    <div>
-      {JOKES.map(j => (
-        <JokeItem
-          key={j.id}
-          joke={j}
-          isSelected={selectedId === j.id}
-          onSelect={setSelectedId}
-        />
-      ))}
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<ClientShop />} />
+        <Route path="/product/:id" element={<ProductDetail />} />
+        <Route path="/admin" element={<AdminDashboard />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
+
+export default App;

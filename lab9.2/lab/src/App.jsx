@@ -1,9 +1,8 @@
-import DeleteModal from "./components/Modal/DeleteModal";
-
+import ClientShop from "./pages/ClientShop";
 function App() {
   return (
     <div className="p-10">
-      <DeleteModal />
+      <ClientShop />
     </div>
   );
 }
